@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 40vh;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", serif;
+    background-color: #0b1522;
+}
+
+.heart {
+    height: 200px; /* Altura principal */
+    width: 200px; /* Ancho principal */
+    background-color: #f20044; /* Color de fondo */
+
+    position: absolute; /* O fixed para mantenerlo en la misma posición al hacer scroll */
+    top: 30%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: rotate(-45deg); /* Rotación para formar el corazón */
+    box-shadow: -10px 10px 90px #f20044;
+    animation: heart 0.30s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+}
+
+.heart p {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+
+    transform: rotate(47deg) translate(0,-50px);
+}
+
+@keyframes heart {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+    80% {
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100% {
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+
+.heart::before{
+    content: "";
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-color: #f20044;
+    border-radius: 100px;
+    box-shadow: -10px -10px 90px #f20044;
+}
+
+
+
+.heart::before {
+    top: -50%; /* Eleva la mitad superior */
+    left: 0;
+}
+
+/* Posición del lado derecho del corazón */
+.heart::after {
+    content: "";
+    position: absolute;
+    height: 200px;
+    width: 254px;
+    background-color: #f20044;
+    border-radius: 100px;
+    box-shadow: -10px -10px 90px #f20044;
+    top: 1px;
+    right: -50%; /* Desplaza hacia la derecha */
+}
+:root:not(.show-finalway) .heart {
+    display: none !important; /* Fuerza a ocultar el corazón */
+}
