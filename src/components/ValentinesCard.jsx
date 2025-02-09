@@ -29,11 +29,11 @@ const ValentinesCard = () => {
             <input id="open" type="checkbox" />
             <label className="open" htmlFor="open"></label>
             <div className="card-front">
-                <div className="note">Desliza mi kakita bella</div>
+                <div className="note">Desliza mi gordita bella</div>
             </div>
             <div className="card-inside">
                 <div className="text-one">
-                    Me dejas
+                    Quieres ser
                 </div>
                 <div className="heartt"></div>
                 <div className="smile"></div>

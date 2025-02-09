@@ -26,9 +26,7 @@ const FinalWay = () => {
     return (
         <div className="heart">
             <p>
-                Ay mi kakita poto suelto.
-                Paso por ti a las 6 pa alimentar ese potito✨✨
-                Este corazón  tiene taquicardia como el mío  xd,❤️❤️te amoooo❤️❤️
+                Gordi, paso por ti el viernes a las 08:00 ❤️❤️ te amoo❤️❤️
             </p>
 
         </div>
