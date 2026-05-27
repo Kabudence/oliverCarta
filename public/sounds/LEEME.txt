@@ -1,0 +1,5 @@
+Opcional:
+Si quieres usar tu propio audio, pon un archivo llamado kenny.mp3 en esta carpeta.
+Ruta esperada por la app: public/sounds/kenny.mp3
+
+Si no pones el mp3, la app usa la voz del navegador como respaldo.
