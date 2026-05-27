@@ -1,12 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Luckiest+Guy&display=swap');
+
+:root {
+    --night: #0c0b16;
+    --night-soft: #18152a;
+    --purple: #4b173e;
+    --wine: #7d1d2f;
+    --red: #f35d5d;
+    --gold: #f6d365;
+    --cream: #f5eee3;
+    --paper: #fff7df;
+    --ink: #171421;
+    --gray-fur: #39404c;
+    --brown-fur: #b87945;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+}
 
 body {
-    height: 100vh;
+    overflow: hidden;
+    font-family: 'Fredoka', system-ui, sans-serif;
+    color: var(--cream);
+    background:
+        radial-gradient(circle at 16% 18%, rgba(246, 211, 101, 0.18), transparent 28%),
+        radial-gradient(circle at 86% 14%, rgba(243, 93, 93, 0.25), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(125, 29, 47, 0.32), transparent 36%),
+        linear-gradient(135deg, #060611 0%, var(--night) 48%, #2a1230 100%);
+}
+
+.invitation-page {
+    position: relative;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #f2acac;
-    font-family: 'Mochiy Pop P One', sans-serif;
+    justify-content: center;
+    padding: 34px 18px;
+    isolation: isolate;
+}
+
+.night-glow {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(1px);
+    opacity: 0.85;
+    z-index: -1;
+}
+
+.glow-one {
+    width: 210px;
+    height: 210px;
+    left: 7%;
+    top: 10%;
+    background: radial-gradient(circle, rgba(246, 211, 101, 0.2), transparent 70%);
+}
+
+.glow-two {
+    width: 150px;
+    height: 150px;
+    right: 9%;
+    bottom: 12%;
+    background: radial-gradient(circle, rgba(243, 93, 93, 0.24), transparent 70%);
+}
+
+.glow-three {
+    width: 90px;
+    height: 90px;
+    right: 22%;
+    top: 18%;
+    background: radial-gradient(circle, rgba(255, 247, 223, 0.22), transparent 70%);
 }
 
 input#open {
@@ -15,267 +85,513 @@ input#open {
 
 .valentines-day-card {
     position: relative;
-    width: 300px;
-    height:300px;
+    width: min(88vw, 360px);
+    height: min(88vw, 360px);
+    max-height: 360px;
     transform-style: preserve-3d;
-    transform: perspective(2500px);
-    transition: .3s;
+    perspective: 2500px;
+    transition: 0.35s ease;
+}
+
+.card-front,
+.card-inside {
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
 }
 
 .card-front {
     position: relative;
-    background-color: #fff0f3;
-    width: 300px;
-    height:300px;
+    z-index: 2;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.14), transparent 26%),
+        repeating-linear-gradient(90deg, transparent 0 28px, rgba(255, 255, 255, 0.04) 28px 30px),
+        linear-gradient(135deg, #211933 0%, #4b173e 56%, #171421 100%);
+    border: 5px solid rgba(246, 211, 101, 0.92);
     transform-origin: left;
-    box-shadow: inset 100px 20px 100px rgba(0,0,0,.15), 30px 0 50px rgba(0,0,0,0.3);
-    transition: .3s;
+    box-shadow:
+        inset 42px 18px 80px rgba(0, 0, 0, 0.24),
+        26px 20px 55px rgba(0, 0, 0, 0.42);
+    transition: 0.45s ease;
+    overflow: hidden;
 }
 
-.card-front:before {
-    content:"";
+.card-front::before {
+    content: "";
     position: absolute;
-    width: 280px;
-    height: 280px;
-    background-color: #d04e4e;
-    top: 10px;
-    left: 10px;
+    inset: 16px;
+    border: 2px solid rgba(255, 247, 223, 0.52);
+    border-radius: 20px;
+}
+
+.card-front::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -72px;
+    bottom: -78px;
+    border-radius: 50%;
+    background: rgba(243, 93, 93, 0.18);
+}
+
+.front-moon {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    top: 34px;
+    right: 36px;
+    border-radius: 50%;
+    background: var(--cream);
+    box-shadow: 0 0 36px rgba(255, 247, 223, 0.52);
+}
+
+.front-moon::after {
+    content: "";
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    left: 22px;
+    top: -8px;
+    border-radius: 50%;
+    background: #2d1333;
+}
+
+.front-window {
+    position: absolute;
+    width: 52px;
+    height: 72px;
+    bottom: 34px;
+    border: 3px solid rgba(255, 247, 223, 0.72);
+    background: rgba(246, 211, 101, 0.16);
+    box-shadow: inset 0 24px 0 rgba(255, 255, 255, 0.06);
+}
+
+.window-a {
+    left: 34px;
+}
+
+.window-b {
+    right: 34px;
+}
+
+.animal-shadow {
+    position: absolute;
+    left: 38px;
+    top: 74px;
+    width: 86px;
+    height: 96px;
+    border-radius: 46% 46% 52% 52%;
+    background: var(--gray-fur);
+    border: 4px solid #0e0d16;
+    box-shadow: 7px 9px 0 rgba(0, 0, 0, 0.24);
+}
+
+.animal-shadow::before,
+.animal-shadow::after {
+    content: "";
+    position: absolute;
+    top: 42px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px #0e0d16;
+}
+
+.animal-shadow::before {
+    left: 22px;
+}
+
+.animal-shadow::after {
+    right: 22px;
+}
+
+.ear {
+    position: absolute;
+    top: -25px;
+    width: 38px;
+    height: 54px;
+    background: var(--gray-fur);
+    border: 4px solid #0e0d16;
+    border-radius: 10px 32px 8px 32px;
+}
+
+.ear-left {
+    left: 5px;
+    transform: rotate(-24deg);
+}
+
+.ear-right {
+    right: 5px;
+    transform: scaleX(-1) rotate(-24deg);
+}
+
+.note {
+    position: absolute;
+    z-index: 3;
+    width: 220px;
+    min-height: 126px;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    border-radius: 18px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 4px solid var(--ink);
+    box-shadow: 9px 9px 0 rgba(0, 0, 0, 0.3);
+    font-family: 'Luckiest Guy', 'Fredoka', system-ui, sans-serif;
+    font-size: clamp(25px, 7vw, 34px);
+    line-height: 1.02;
+    text-align: center;
+    letter-spacing: 0.02em;
+    transform: translate(-50%, -50%) rotate(-3deg);
+}
+
+.note::before,
+.note::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: var(--red);
+    border: 3px solid var(--ink);
+}
+
+.note::before {
+    width: 34px;
+    height: 34px;
+    left: -18px;
+    top: -18px;
+}
+
+.note::after {
+    width: 24px;
+    height: 24px;
+    right: -13px;
+    bottom: -13px;
+    background: var(--gold);
+}
+
+.paw-dots {
+    position: absolute;
+    right: 68px;
+    bottom: 92px;
+    display: flex;
+    gap: 8px;
+    transform: rotate(-18deg);
+}
+
+.paw-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--cream);
+    opacity: 0.72;
 }
 
 .card-inside {
     position: absolute;
-    background-color: #fff0f3;
-    width: 300px;
-    height:300px;
-    z-index:-1;
-    left:0;
-    top:0;
-    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.22), 100px 20px 100px rgba(0,0,0,0.1);
+    left: 0;
+    top: 0;
+    z-index: 0;
+    color: var(--ink);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 48%),
+        linear-gradient(160deg, #fff7df 0%, #ffe1bd 54%, #f7b7af 100%);
+    border: 5px solid rgba(246, 211, 101, 0.92);
+    box-shadow:
+        inset 90px 20px 90px rgba(0, 0, 0, 0.12),
+        80px 20px 100px rgba(0, 0, 0, 0.16);
+    overflow: visible;
+}
+
+.inside-panel {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(23, 20, 33, 0.08) 1px, transparent 1px) 0 0 / 42px 100%,
+        linear-gradient(0deg, rgba(23, 20, 33, 0.08) 1px, transparent 1px) 0 0 / 100% 42px;
+    opacity: 0.9;
+}
+
+.hall-light {
+    position: absolute;
+    top: 24px;
+    width: 42px;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(246, 211, 101, 0.65);
+    box-shadow: 0 0 24px rgba(246, 211, 101, 0.5);
+}
+
+.hall-light-one {
+    left: 54px;
+}
+
+.hall-light-two {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hall-light-three {
+    right: 54px;
 }
 
 .open {
     position: absolute;
-    width: 300px;
-    height:300px;
-    left:0;
-    top:0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
     background-color: transparent;
-    z-index:6;
+    z-index: 6;
     cursor: pointer;
+}
+
+#open:checked ~ .open {
+    pointer-events: none;
 }
 
 #open:checked ~ .card-front {
     transform: rotateY(-155deg);
-    box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+    pointer-events: none;
+    box-shadow: inset 44px 20px 90px rgba(0, 0, 0, 0.18), 24px 0 45px rgba(0, 0, 0, 0.14);
 }
 
-#open:checked ~ .card-front:before {
-    z-index:5;
-    background-color: #fff0f3;
-    width:300px;
-    height:300px;
-    top:0;
-    left:0;
-    box-shadow: inset 100px 20px 100px rgba(0,0,0,.1), 30px 0 50px rgba(0,0,0,0.1);
+#open:checked ~ .card-front::before {
+    opacity: 0.2;
 }
-
-.note {
-    position: relative;
-    width: 200px;
-    height: 150px;
-    background-color: #fff0f3;
-    top:75px;
-    left:50px;
-    color: #333;
-    font-size:30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
-}
-
-.note:before, .note:after {
-    position: absolute;
-    content:"";
-    background-color: #ba1c1c;
-    width: 40px;
-    height:40px;
-}
-
-.note:before {
-    transform: rotate(-45deg);
-    top:-20px;
-    left:80px;
-}
-
-.note:after {
-    border-radius:50%;
-    top:-35px;
-    left:65px;
-    box-shadow:30px 0 #ba1c1c;
-}
-
 
 .text-one {
     position: absolute;
-    color: #333;
-    font-size: 30px;
-    top:30px;
-    width:300px;
+    z-index: 2;
+    top: 28px;
+    left: 50%;
+    width: 286px;
+    margin: 0;
+    transform: translateX(-50%);
+    color: var(--ink);
+    font-family: 'Luckiest Guy', 'Fredoka', system-ui, sans-serif;
+    font-size: clamp(25px, 7vw, 34px);
+    line-height: 1;
     text-align: center;
+    letter-spacing: 0.01em;
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.85);
 }
 
-.text-one:before, .text-one:after {
+.night-scene {
     position: absolute;
-    left:5px;
-    text-align: center;
-    width:300px;
+    left: 50%;
+    top: 142px;
+    width: 236px;
+    height: 118px;
+    transform: translateX(-50%);
 }
 
-.text-one:before {
-    content:"San Valentín?";
-    top:70px;
-    color: #d04e4e;
-}
-
-.text-one:after {
-    content:"mi";
-    top:35px;
-}
-
-.heartt {
-    position: relative;
-    background-color: #d04e4e;
-    height: 60px;
-    width:60px;
-    top:180px;
-    left:120px;
-    transform: rotate(-45deg);
-    animation: .8s beat infinite;
-}
-
-.heartt:before, .heartt:after {
-    content:"";
-    background-color: #d04e4e;
-    border-radius:50%;
-    height: 60px;
-    width: 60px;
+.inside-moon {
     position: absolute;
-}
-
-.heartt:before {
-    top:-30px;
-    left:0;
-}
-
-.heartt:after {
-    left:30px;
-    top:0;
-}
-
-.smile {
-    position: absolute;
-    width:30px;
-    height:15px;
-    background-color: #333;
-    z-index:1;
-    border-radius: 0 0 100px 100px;
-    top:200px;
-    left:135px;
-    overflow: hidden;
-}
-
-.smile:before {
-    content:"";
-    position: absolute;
-    border-radius:50%;
-    width:20px;
-    height:20px;
-    background-color: #030202;
-    top:5px;
-    left:5px;
-}
-
-.eyes {
-    position: absolute;
+    right: 8px;
+    top: 0;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background-color: #333;
-    width:10px;
-    height:10px;
-    z-index:1;
-    top:190px;
-    left:165px;
-    box-shadow: -40px 0 #333;
-    transform-origin: 50%;
-    animation: close 2s infinite;
+    background: var(--cream);
+    border: 3px solid var(--ink);
+    box-shadow: 0 0 18px rgba(255, 247, 223, 0.72);
 }
 
-@keyframes close {
-    0%, 100% {
-        transform: scale(1, .05);
-    }
-    5%, 95% {
-        transform: scale(1, 1);
-    }
+.paper-character {
+    position: absolute;
+    bottom: 0;
+    width: 76px;
+    height: 88px;
+    border: 4px solid var(--ink);
+    border-radius: 28px 28px 16px 16px;
+    box-shadow: 6px 7px 0 rgba(23, 20, 33, 0.22);
 }
 
-@keyframes beat {
-    0%, 40%, 100% {
-        transform: scale(1) rotate(-45deg);
-    }
-    25%, 60% {
-        transform: scale(1.1) rotate(-45deg);
-    }
+.wolf-character {
+    left: 38px;
+    background: var(--gray-fur);
+    transform: rotate(-4deg);
+}
+
+.deer-character {
+    right: 38px;
+    background: var(--brown-fur);
+    transform: rotate(4deg);
+}
+
+.character-ear {
+    position: absolute;
+    top: -28px;
+    width: 30px;
+    height: 42px;
+    background: var(--gray-fur);
+    border: 4px solid var(--ink);
+    border-radius: 10px 25px 8px 25px;
+}
+
+.character-ear.left {
+    left: 6px;
+    transform: rotate(-20deg);
+}
+
+.character-ear.right {
+    right: 6px;
+    transform: scaleX(-1) rotate(-20deg);
+}
+
+.antler {
+    position: absolute;
+    top: -36px;
+    width: 30px;
+    height: 38px;
+    border-left: 5px solid var(--ink);
+    border-top: 5px solid var(--ink);
+}
+
+.antler.left {
+    left: 8px;
+    transform: rotate(-14deg);
+}
+
+.antler.right {
+    right: 8px;
+    transform: scaleX(-1) rotate(-14deg);
+}
+
+.paper-character::before,
+.paper-character::after {
+    content: "";
+    position: absolute;
+    top: 33px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--ink);
+}
+
+.paper-character::before {
+    left: 20px;
+}
+
+.paper-character::after {
+    right: 20px;
+}
+
+.round-hood {
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 78px;
+    height: 46px;
+    transform: translateX(-50%);
+    border-radius: 18px 18px 12px 12px;
+    background: #f35d5d;
+    border-top: 4px solid var(--ink);
+}
+
+.deer-character .round-hood {
+    background: #48a868;
+}
+
+.parka-body {
+    position: absolute;
+    left: 50%;
+    bottom: -14px;
+    width: 22px;
+    height: 46px;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.22);
+    border-left: 3px solid rgba(23, 20, 33, 0.42);
+    border-right: 3px solid rgba(23, 20, 33, 0.42);
 }
 
 .buttons {
-    display: none; /* Oculta los botones por defecto */
+    display: none;
     position: absolute;
-    bottom: -80px;
+    z-index: 30;
     left: 50%;
+    bottom: 22px;
     transform: translateX(-50%);
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 22px;
+    min-width: 230px;
 }
 
 #open:checked ~ .card-inside .buttons {
-    display: flex; /* Muestra los botones solo cuando la carta está abierta */
-}
- .btn-no {
-    text-decoration: none;
-    color: #fff;
-    background-color: #d04e4e;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: transform 0.3s, background-color 0.3s;
+    display: flex;
 }
 
-.btn-yes:hover, .btn-no:hover {
-    transform: scale(1.1);
-    background-color: #ba3b3b;
-}
-
+.btn-yes,
 .btn-no {
-    background-color: #333;
-    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 86px;
+    min-height: 46px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    border: 3px solid var(--ink);
+    color: #fff;
+    font-family: 'Luckiest Guy', 'Fredoka', system-ui, sans-serif;
+    font-size: 20px;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    box-shadow: 5px 6px 0 rgba(0, 0, 0, 0.28);
+    user-select: none;
 }
 
 .btn-yes {
-    color: #fff;
-    width: 2px; /* Más pequeño */
-    height: 2px; /* Ajusta la altura */
-    text-align: center;
-    font-size: 3px; /* Tamaño de texto reducido */
-    padding: 5px 10px; /* Espaciado más compacto */
-    background-color: #d04e4e;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: transform 0.3s, background-color 0.3s;
+    background: #f35d5d;
 }
 
-.btn-yes:hover {
-    transform: scale(1.1); /* Un pequeño zoom al hacer hover */
-    background-color: #ba3b3b;
+.btn-no {
+    background: #171421;
+    transition: top 0.22s ease, left 0.22s ease, transform 0.22s ease, background-color 0.22s ease;
+}
+
+.btn-yes:hover,
+.btn-yes:focus-visible {
+    transform: translateY(-3px) scale(1.04);
+    background: #d94444;
+}
+
+.btn-no:hover,
+.btn-no:focus-visible {
+    background: #2a1b3d;
+}
+
+@media (max-width: 430px) {
+    .valentines-day-card {
+        width: 310px;
+        height: 310px;
+    }
+
+    .note {
+        width: 198px;
+        min-height: 112px;
+    }
+
+    .text-one {
+        width: 252px;
+        font-size: 28px;
+    }
+
+    .night-scene {
+        top: 134px;
+        transform: translateX(-50%) scale(0.9);
+    }
+
+    .buttons {
+        bottom: 14px;
+        gap: 14px;
+        min-width: 210px;
+    }
 }
