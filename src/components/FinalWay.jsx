@@ -103,7 +103,7 @@ const FinalWay = () => {
 
                 <div className="kenny-stage" aria-hidden="true">
                     <div className="street-line"></div>
-                    <div className="falling-sign">CHIFA</div>
+                    <div className="falling-sign">VAINITAS</div>
                     <div className="impact-star"></div>
                     <div className="kenny-character">
                         <span className="kenny-hood"></span>
