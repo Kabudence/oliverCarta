@@ -120,7 +120,7 @@ const FinalWay = () => {
                 </div>
 
                 <h1>Chifa</h1>
-                <p>Viernes 08:00</p>
+                <p>Sabado 08:00</p>
 
                 <button
                     type="button"
